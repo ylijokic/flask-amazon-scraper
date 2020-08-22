@@ -9,6 +9,10 @@ from amazon_config import(
     get_web_driver_options,
     set_browser_as_incognito,
     set_ignore_certificate_errors,
+    set_headless,
+    set_dev_usage,
+    set_sandbox,
+    set_binary_location,
     NAME,
     CURRENCY,
     FILTERS,
@@ -60,8 +64,12 @@ class AmazonAPI:
         self.base_url = base_url
         self.search_term = search_term
         options = get_web_driver_options()
+        set_binary_location(options)
         set_ignore_certificate_errors(options)
         set_browser_as_incognito(options)
+        set_headless(options)
+        set_dev_usage(options)
+        set_sandbox(options)
         self.driver = get_chrome_web_driver(options)
         self.currency = currency
         self.price_filter = f"&rh=p_36%3A{filters['min']}00-{filters['max']}00"
