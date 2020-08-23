@@ -85,7 +85,8 @@ class AmazonAPI:
 
         print(f"Got {len(links)} links to products...")
         print("Getting info about products...")
-        products = self.get_products_info(links)
+        new_links = links[0:3]
+        products = self.get_products_info(new_links)
 
         self.driver.quit()
         return products
