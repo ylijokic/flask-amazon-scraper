@@ -85,7 +85,7 @@ class AmazonAPI:
 
         print(f"Got {len(links)} links to products...")
         print("Getting info about products...")
-        new_links = links[0:2]
+        new_links = links[0:3]
         products = self.get_products_info(new_links)
 
         self.driver.quit()
@@ -107,7 +107,7 @@ class AmazonAPI:
         try:
             results = result_list[0].find_elements_by_xpath(
                 "//div/span/div/div/div[2]/div[2]/div/div[1]/div/div/div[1]/h2/a")
-            links = [link.get_attribute("href") for link in results]
+            links = [link.get_attribute("href") for link in results[0:3]]
             return links
         except Exception as e:
             print("Didn't get any products...")
