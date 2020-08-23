@@ -38,8 +38,8 @@ class GenerateReport:
             'products': self.data
         }
         print("Generating the report")
-        with open(f"{DIRECTORY}/{file_name}.json", 'w') as f:
-            json.dump(self.report, f)
+        # with open(f"{DIRECTORY}/{file_name}.json", 'w') as f:
+        #     json.dump(self.report, f)
         print("Done")
 
     def get_report(self):
@@ -85,7 +85,7 @@ class AmazonAPI:
 
         print(f"Got {len(links)} links to products...")
         print("Getting info about products...")
-        new_links = links[0:3]
+        new_links = links[0:2]
         products = self.get_products_info(new_links)
 
         self.driver.quit()
